@@ -42,9 +42,9 @@ def PBFev(mol):
         v = np.array(((evCoords[0]-anchorCoords[0]),
                       (evCoords[1]-anchorCoords[1]),
                       (evCoords[2]-anchorCoords[2])))
-        angle = np.arccos((np.dot(v, plane[:3])) /
+        angle = np.arcsin((np.dot(v, plane[:3])) /
                           ((denom)*((np.dot(v, v))**0.5)))
-        angle = np.abs(int(90 - np.degrees(angle)))
+        angle = np.abs(np.degrees(angle))
         exitVectors[n] = angle
 
     return exitVectors
